@@ -1,3 +1,4 @@
+/* eslint-disable i18n-text/no-en */
 import * as core from '@actions/core'
 import { createReadStream } from 'fs'
 import walkSync from 'walk-sync'
@@ -92,7 +93,8 @@ async function run(): Promise<void> {
     })
 
     core.setOutput('result', 'Bingo bango bongo!')
-  } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
     core.setFailed(error.message)
   }
 }
